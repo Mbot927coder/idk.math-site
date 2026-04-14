@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>idk.math — About</title>
+  <title>sharpness.math — About</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Baloo+2:wght@600&display=swap" rel="stylesheet">
@@ -12,12 +12,12 @@
 <body>
 <div class="app-container">
 
-  <button class="hub-trigger" onclick="toggleHub()">M</button>
+  <button class="hub-trigger" onclick="toggleHub()">S</button>
 
   <aside class="sidebar">
     <div class="sidebar-header">
-      <div class="logo-icon">M</div>
-      <span class="brand-text">IDK Math</span>
+      <div class="logo-icon">S</div>
+      <span class="brand-text">Sharpness Math</span>
     </div>
     <nav class="sidebar-nav">
       <div class="nav-section-title">Navigation</div>
@@ -28,7 +28,10 @@
         <span class="icon">🎮</span> Browse Games
       </a>
       <a class="nav-item active" href="about.html">
-        <span class="icon">ℹ️</span> How It Works
+        <span class="icon">ℹ️</span> About
+      </a>
+      <a class="nav-item" href="settings.html">
+        <span class="icon">⚙️</span> Settings
       </a>
       <div class="nav-section-title">My Games</div>
       <a class="nav-item" href="games.html?category=Action">
@@ -53,6 +56,7 @@
       <a class="nav-item" href="index.html">🏠 Home</a>
       <a class="nav-item" href="games.html">🎮 Games</a>
       <a class="nav-item active" href="about.html">ℹ️ About</a>
+      <a class="nav-item" href="settings.html">⚙️ Settings</a>
     </nav>
 
     <div class="page-shell">
@@ -82,6 +86,26 @@
           <li>Sidebar category links filter games instantly</li>
           <li>Each game loads in a full-screen iframe</li>
         </ul>
+      </section>
+
+      <section class="about" style="margin-top: 1.5rem;">
+        <div>
+          <p class="section-label">Bibliography</p>
+          <h2>Sources and Credits</h2>
+          <p>
+            This project uses various open-source libraries and assets.
+          </p>
+          <ul class="about-list">
+            <li><strong>Fonts:</strong> Space Grotesk, Baloo 2 via Google Fonts</li>
+            <li><strong>Icons:</strong> Emoji-based icons</li>
+            <li><strong>Games:</strong> Thanks to gn-math and
+              <a href="https://docs.google.com/document/d/1BGDZ5sgwGTQIf8or47KonzbA6LwfiLvv3RkhElb0j3g/edit?tab=t.0" target="_blank">Unblocked Games Doc</a> for the games
+            </li>
+          </ul>
+        </div>
+        <div class="empty-state">
+          Additional references and documentation for the games can be found in their respective source folders within <code>Maths stuff</code>.
+        </div>
       </section>
     </div>
   </div>

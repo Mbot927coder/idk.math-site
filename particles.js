@@ -71,7 +71,14 @@ function initParticles() {
     }
 }
 
+let particlesActive = localStorage.getItem('particlesEnabled') !== 'false';
+
 function animate() {
+    if (!particlesActive) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        requestAnimationFrame(animate);
+        return;
+    }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (let i = 0; i < particles.length; i++) {
         particles[i].update();
@@ -79,6 +86,15 @@ function animate() {
     }
     requestAnimationFrame(animate);
 }
+
+// Global function to toggle particles
+window.toggleParticles = function(active) {
+    particlesActive = active;
+    localStorage.setItem('particlesEnabled', active);
+    if (!active) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+};
 
 window.addEventListener('resize', resize);
 window.addEventListener('mousemove', (e) => {

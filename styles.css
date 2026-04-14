@@ -147,6 +147,23 @@ a {
   transition: opacity 0.4s, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+body.regular-sidebar .sidebar {
+  position: sticky;
+  top: 2rem;
+  left: 0;
+  bottom: auto;
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+  margin: 2rem 0 2rem 2rem;
+  height: calc(100vh - 4rem);
+  max-height: none;
+}
+
+body.regular-sidebar .hub-trigger {
+  display: none;
+}
+
 .sidebar.active {
   opacity: 1;
   transform: translateY(0) scale(1);
