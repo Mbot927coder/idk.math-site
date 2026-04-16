@@ -113,6 +113,7 @@ function renderGames() {
 
 // ── Game launcher ────────────────────────────────────────────
 function launchGame(url, title) {
+  console.log("Launching game:", url, title);
   gameFrame.src = url;
   gameTitle.textContent = title;
   gameView.style.display = "flex";
@@ -160,13 +161,52 @@ function applyURLFilter() {
     document.querySelectorAll(".sidebar-nav .nav-item:not([data-filter])").forEach(link => {
       if (link.getAttribute("href") === "games.html") link.classList.remove("active");
     });
+  } else {
+    // If no category, ensure "Browse Games" is active
+    document.querySelectorAll(".sidebar-nav .nav-item").forEach(link => {
+      if (link.getAttribute("href") === "games.html" && !link.dataset.filter) {
+        link.classList.add("active");
+      } else if (link.dataset.filter) {
+        link.classList.remove("active");
+      }
+    });
   }
   renderGames();
+}
+
+// ── Sidebar category link click handler ─────────────────────
+function handleSidebarClick(e) {
+  const link = e.target.closest(".nav-item[data-filter]");
+  if (!link) return;
+
+  e.preventDefault();
+  const cat = link.dataset.filter;
+  
+  // Update URL without reload
+  const newUrl = new URL(window.location);
+  newUrl.searchParams.set("category", cat);
+  window.history.pushState({}, "", newUrl);
+
+  // Update filter and UI
+  categoryFilter.value = cat;
+  applyURLFilter();
+  
+  // Close hub if active (mobile/hub mode)
+  if (window.toggleHub && document.querySelector('.sidebar').classList.contains('active')) {
+    window.toggleHub();
+  }
 }
 
 // ── Init ─────────────────────────────────────────────────────
 fillCategoryOptions();
 applyURLFilter();
+
+document.querySelectorAll(".sidebar-nav").forEach(nav => {
+  nav.addEventListener("click", handleSidebarClick);
+});
+
+// Also handle popstate for browser back/forward buttons
+window.addEventListener("popstate", applyURLFilter);
 
 searchInput.addEventListener("input", renderGames);
 categoryFilter.addEventListener("change", renderGames);
