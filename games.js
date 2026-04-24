@@ -77,6 +77,13 @@ const games = [
     href: "Maths%20stuff/clsoccerrandomgood.html"
   },
   {
+    title: "Snow Rider",
+    category: "Sports",
+    status: "Ready to play",
+    description: "Downhill sledding with obstacle dodging, fast reactions, and endless runs.",
+    href: "Maths%20stuff/clsnowrider.html"
+  },
+  {
     title: "Volley Random",
     category: "Sports",
     status: "Ready to play",
